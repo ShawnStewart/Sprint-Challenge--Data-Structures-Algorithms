@@ -1,12 +1,15 @@
 const heapsort = (arr) => {
-  /* Your code here */
-  console.log(arr);
-  let myHeap = new Heap;
+  let myHeap = new Heap();
   for (let i = 0; i < arr.length; i++) {
     myHeap.insert(arr[i]);
   }
-  console.log(myHeap);
-  return myHeap.storage;
+  index = arr.length - 1;
+  while(myHeap.getSize()) {
+    arr[index] = myHeap.delete();
+    index--;
+  }
+  console.log(arr);
+  return arr;
 };
 
 
