@@ -6,12 +6,24 @@ class BinarySearchTree {
   }
 
   depthFirstForEach(cb) {
-    cb(this.value);
-    if (this.left) {
-      this.left.depthFirstForEach(cb);
-    }
-    if (this.right) {
-      this.right.depthFirstForEach(cb);
+    //=== Recursive appraoch ===
+    // cb(this.value);
+    // if (this.left) {
+    //   this.left.depthFirstForEach(cb);
+    // }
+    // if (this.right) {
+    //   this.right.depthFirstForEach(cb);
+    // }
+
+    //=== Iterative approach ===
+    let stack = [this];
+    let node;
+    while (stack.length) {
+      console.log(stack);
+      node = stack.pop();
+      cb(node.value);
+      if (node.right) stack.push(node.right);
+      if (node.left) stack.push(node.left);
     }
   }
 
